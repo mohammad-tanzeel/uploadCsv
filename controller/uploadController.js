@@ -15,8 +15,6 @@ exports.uploadCsvData = async (req, res) => {
   const csvfile_path = upload_folder + "/" + file_name;
   console.log(csvfile_path);
   //   process.exit(1);
-
-  //   __dirname + "../files/" + file_name;
   let csvdataObject = "";
   var regex = new RegExp("(.*?).(csv)$");
   if (!regex.test(csvfile_name.name)) {

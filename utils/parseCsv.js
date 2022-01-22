@@ -3,7 +3,6 @@ const csvparser = require("csv-parser");
 const Student = require('../model/Student');
 
 exports.parsedSavedCsvData =  (csvfile_path, res) => {
-    // const customdata = {name:"tanzeel", csvfile_path:csvfile_path};
     let rows = [];
 
     fs.createReadStream(csvfile_path)

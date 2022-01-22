@@ -1,11 +1,19 @@
 const express = require("express");
 const fileUpload = require("express-fileupload");
-var parseCsv = require('./utils/parseCsv');
 const db = require('./config/db-client')
 const app = express();
 const PORT = 5001;
 
 db.dbconnect();
+
+const allowedMethods = ['GET', 'HEAD', 'POST']
+app.use((req, res, next) => {
+    if (!allowedMethods.includes(req.method)) 
+      {
+        return res.status(405).send({'message':'Method Not Allowed'});
+      }
+    return next()
+})
 
 app.use(
   fileUpload({
