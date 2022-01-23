@@ -6,7 +6,8 @@ const PORT = 5001;
 
 db.dbconnect();
 
-const allowedMethods = ['GET', 'HEAD', 'POST']
+const allowedMethods = ['GET', 'HEAD'];
+console.log(req.method);
 app.use((req, res, next) => {
     if (!allowedMethods.includes(req.method)) 
       {
